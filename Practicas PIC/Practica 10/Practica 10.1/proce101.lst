@@ -1,0 +1,431 @@
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;****************************************************
+                      00002 
+                      00003         LIST P=16F84A
+                      00004         
+                      00005         INCLUDE<P16F84A.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00207         LIST
+                      00006         
+                      00007 ;P 10 1
+                      00008 
+                      00009 ;****************************************************
+                      00010 
+0000                  00011         ORG             0
+                      00012         
+0000                  00013 Inicio
+                      00014 
+0000   300F           00015         movlw   0x0F
+0001   008C           00016         movwf   0x0C
+0002   2803           00017         goto    BCDIN
+                      00018         
+0003                  00019 BCDIN
+                      00020 
+0003   180C           00021         btfsc   0x0C,0
+0004   1C0C           00022         btfss   0x0C,0
+0005   2807           00023         goto    BCD0
+0006   280B           00024         goto    BCD1
+                      00025 
+0007                  00026 BCD0
+                      00027         
+0007   188C           00028         btfsc   0x0C,1
+0008   1C8C           00029         btfss   0x0C,1
+0009   280F           00030         goto    BCD00
+000A   2813           00031         goto    BCD10
+                      00032 
+000B                  00033 BCD1
+                      00034         
+000B   188C           00035         btfsc   0x0C,1
+000C   1C8C           00036         btfss   0x0C,1
+000D   2817           00037         goto    BCD01
+000E   281B           00038         goto    BCD11
+                      00039 
+000F                  00040 BCD00
+                      00041         
+000F   190C           00042         btfsc   0x0C,2
+0010   1D0C           00043         btfss   0x0C,2
+0011   2833           00044         goto    BCD000
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0012   2827           00045         goto    BCD100
+                      00046 
+0013                  00047 BCD10
+                      00048         
+0013   190C           00049         btfsc   0x0C,2
+0014   1D0C           00050         btfss   0x0C,2
+0015   282F           00051         goto    BCD010
+0016   282B           00052         goto    BCD110
+                      00053         
+0017                  00054 BCD01
+                      00055         
+0017   190C           00056         btfsc   0x0C,2
+0018   1D0C           00057         btfss   0x0C,2
+0019   2837           00058         goto    BCD001
+001A   2823           00059         goto    BCD101
+                      00060 
+001B                  00061 BCD11
+                      00062         
+001B   190C           00063         btfsc   0x0C,2
+001C   1D0C           00064         btfss   0x0C,2
+001D   281F           00065         goto    BCD011
+001E   283B           00066         goto    BCD111
+                      00067 
+001F                  00068 BCD011
+                      00069         
+001F   198C           00070         btfsc   0x0C,3
+0020   1D8C           00071         btfss   0x0C,3
+0021   2848           00072         goto    BCD_3
+0022   2860           00073         goto    BCD_B
+                      00074                 
+0023                  00075 BCD101
+                      00076         
+0023   198C           00077         btfsc   0x0C,3
+0024   1D8C           00078         btfss   0x0C,3
+0025   284E           00079         goto    BCD_5
+0026   2866           00080         goto    BCD_D
+                      00081 
+0027                  00082 BCD100
+                      00083         
+0027   198C           00084         btfsc   0x0C,3
+0028   1D8C           00085         btfss   0x0C,3
+0029   284B           00086         goto    BCD_4
+002A   2863           00087         goto    BCD_C
+                      00088         
+002B                  00089 BCD110
+                      00090         
+002B   198C           00091         btfsc   0x0C,3
+002C   1D8C           00092         btfss   0x0C,3
+002D   2851           00093         goto    BCD_6
+002E   2869           00094         goto    BCD_E
+                      00095         
+002F                  00096 BCD010
+                      00097         
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+002F   198C           00098         btfsc   0x0C,3
+0030   1D8C           00099         btfss   0x0C,3
+0031   2845           00100         goto    BCD_2
+0032   285D           00101         goto    BCD_A
+                      00102         
+0033                  00103 BCD000
+                      00104 
+0033   198C           00105         btfsc   0x0C,3
+0034   1D8C           00106         btfss   0x0C,3
+0035   283F           00107         goto    BCD_0
+0036   2857           00108         goto    BCD_8
+                      00109         
+0037                  00110 BCD001
+                      00111         
+0037   198C           00112         btfsc   0x0C,3
+0038   1D8C           00113         btfss   0x0C,3
+0039   2842           00114         goto    BCD_1
+003A   285A           00115         goto    BCD_9
+                      00116 
+003B                  00117 BCD111
+                      00118         
+003B   198C           00119         btfsc   0x0C,3
+003C   1D8C           00120         btfss   0x0C,3
+003D   2854           00121         goto    BCD_7
+003E   286C           00122         goto    BCD_F
+                      00123         
+003F                  00124 BCD_0
+                      00125         
+003F   3000           00126         movlw   0x00
+0040   008D           00127         movwf   0X0D
+0041   286F           00128         goto    FIN
+                      00129         
+0042                  00130 BCD_1
+                      00131         
+0042   3001           00132         movlw   0x01
+0043   008D           00133         movwf   0X0D
+0044   286F           00134         goto    FIN
+                      00135         
+0045                  00136 BCD_2
+                      00137         
+0045   3002           00138         movlw   0x02
+0046   008D           00139         movwf   0X0D
+0047   286F           00140         goto    FIN
+                      00141         
+0048                  00142 BCD_3
+                      00143         
+0048   3003           00144         movlw   0x03
+0049   008D           00145         movwf   0X0D
+004A   286F           00146         goto    FIN
+                      00147         
+004B                  00148 BCD_4
+                      00149         
+004B   3004           00150         movlw   0x04
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+004C   008D           00151         movwf   0X0D
+004D   286F           00152         goto    FIN
+                      00153 
+004E                  00154 BCD_5
+                      00155         
+004E   3005           00156         movlw   0x05
+004F   008D           00157         movwf   0X0D
+0050   286F           00158         goto    FIN
+                      00159         
+0051                  00160 BCD_6
+                      00161         
+0051   3006           00162         movlw   0x06
+0052   008D           00163         movwf   0X0D
+0053   286F           00164         goto    FIN
+                      00165         
+0054                  00166 BCD_7
+                      00167         
+0054   3007           00168         movlw   0x07
+0055   008D           00169         movwf   0X0D
+0056   286F           00170         goto    FIN
+                      00171         
+0057                  00172 BCD_8
+                      00173         
+0057   3008           00174         movlw   0x08
+0058   008D           00175         movwf   0X0D
+0059   286F           00176         goto    FIN
+                      00177         
+005A                  00178 BCD_9
+                      00179         
+005A   3009           00180         movlw   0x09
+005B   008D           00181         movwf   0X0D
+005C   286F           00182         goto    FIN
+                      00183         
+005D                  00184 BCD_A
+                      00185         
+005D   3010           00186         movlw   0x10
+005E   008D           00187         movwf   0X0D
+005F   286F           00188         goto    FIN
+                      00189 
+0060                  00190 BCD_B
+                      00191         
+0060   3011           00192         movlw   0x11
+0061   008D           00193         movwf   0X0D
+0062   286F           00194         goto    FIN
+                      00195 
+0063                  00196 BCD_C
+                      00197         
+0063   3012           00198         movlw   0x12
+0064   008D           00199         movwf   0X0D
+0065   286F           00200         goto    FIN
+                      00201         
+0066                  00202 BCD_D
+                      00203         
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0066   3013           00204         movlw   0x13
+0067   008D           00205         movwf   0X0D
+0068   286F           00206         goto    FIN
+                      00207 
+0069                  00208 BCD_E
+                      00209         
+0069   3014           00210         movlw   0x14
+006A   008D           00211         movwf   0X0D
+006B   286F           00212         goto    FIN
+                      00213 
+006C                  00214 BCD_F
+                      00215         
+006C   3015           00216         movlw   0x15
+006D   008D           00217         movwf   0X0D
+006E   286F           00218         goto    FIN
+                      00219         
+006F                  00220 FIN
+006F   0103           00221         clrw
+0070   286F           00222         goto    FIN
+                      00223         
+Warning[205]: Found directive in column 1. (END)
+                      00224 END
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BCD0                              00000007
+BCD00                             0000000F
+BCD000                            00000033
+BCD001                            00000037
+BCD01                             00000017
+BCD010                            0000002F
+BCD011                            0000001F
+BCD1                              0000000B
+BCD10                             00000013
+BCD100                            00000027
+BCD101                            00000023
+BCD11                             0000001B
+BCD110                            0000002B
+BCD111                            0000003B
+BCDIN                             00000003
+BCD_0                             0000003F
+BCD_1                             00000042
+BCD_2                             00000045
+BCD_3                             00000048
+BCD_4                             0000004B
+BCD_5                             0000004E
+BCD_6                             00000051
+BCD_7                             00000054
+BCD_8                             00000057
+BCD_9                             0000005A
+BCD_A                             0000005D
+BCD_B                             00000060
+BCD_C                             00000063
+BCD_D                             00000066
+BCD_E                             00000069
+BCD_F                             0000006C
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FIN                               0000006F
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+Inicio                            00000000
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+MPASM  5.43                      PROCE101.ASM   6-25-2018  10:53:47         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX X---------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:   113
+Program Memory Words Free:   911
+
+
+Errors   :     0
+Warnings :     1 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

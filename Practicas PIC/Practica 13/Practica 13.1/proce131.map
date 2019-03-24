@@ -1,0 +1,82 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Mon Jun 25 11:05:26 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000132
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000098      
+            153 out of 1094 program addresses used, program memory utilization is 13%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  COMP_0C   0x00000b    program     static C:\PIC\proce131.asm      
+                  COMP_0D   0x000043    program     static C:\PIC\proce131.asm      
+                  COMP_0E   0x00006d    program     static C:\PIC\proce131.asm      
+               COMP_0F_10   0x000089    program     static C:\PIC\proce131.asm      
+                      FIN   0x000097    program     static C:\PIC\proce131.asm      
+                   Inicio   0x000000    program     static C:\PIC\proce131.asm      
+               SWIT_0C_0D   0x000023    program     static C:\PIC\proce131.asm      
+               SWIT_0C_0E   0x00002b    program     static C:\PIC\proce131.asm      
+               SWIT_0C_0F   0x000033    program     static C:\PIC\proce131.asm      
+               SWIT_0C_10   0x00003b    program     static C:\PIC\proce131.asm      
+               SWIT_0D_0E   0x000055    program     static C:\PIC\proce131.asm      
+               SWIT_0D_0F   0x00005d    program     static C:\PIC\proce131.asm      
+               SWIT_0D_10   0x000065    program     static C:\PIC\proce131.asm      
+               SWIT_0E_0F   0x000079    program     static C:\PIC\proce131.asm      
+               SWIT_0E_10   0x000081    program     static C:\PIC\proce131.asm      
+               SWIT_0F_10   0x00008f    program     static C:\PIC\proce131.asm      
+              VERIF_0C_0D   0x000017    program     static C:\PIC\proce131.asm      
+              VERIF_0C_0E   0x00001a    program     static C:\PIC\proce131.asm      
+              VERIF_0C_0F   0x00001d    program     static C:\PIC\proce131.asm      
+              VERIF_0C_10   0x000020    program     static C:\PIC\proce131.asm      
+              VERIF_0D_0E   0x00004c    program     static C:\PIC\proce131.asm      
+              VERIF_0D_0F   0x00004f    program     static C:\PIC\proce131.asm      
+              VERIF_0D_10   0x000052    program     static C:\PIC\proce131.asm      
+              VERIF_0E_0F   0x000073    program     static C:\PIC\proce131.asm      
+              VERIF_0E_10   0x000076    program     static C:\PIC\proce131.asm      
+              VERIF_0F_10   0x00008c    program     static C:\PIC\proce131.asm      
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   Inicio   0x000000    program     static C:\PIC\proce131.asm      
+                  COMP_0C   0x00000b    program     static C:\PIC\proce131.asm      
+              VERIF_0C_0D   0x000017    program     static C:\PIC\proce131.asm      
+              VERIF_0C_0E   0x00001a    program     static C:\PIC\proce131.asm      
+              VERIF_0C_0F   0x00001d    program     static C:\PIC\proce131.asm      
+              VERIF_0C_10   0x000020    program     static C:\PIC\proce131.asm      
+               SWIT_0C_0D   0x000023    program     static C:\PIC\proce131.asm      
+               SWIT_0C_0E   0x00002b    program     static C:\PIC\proce131.asm      
+               SWIT_0C_0F   0x000033    program     static C:\PIC\proce131.asm      
+               SWIT_0C_10   0x00003b    program     static C:\PIC\proce131.asm      
+                  COMP_0D   0x000043    program     static C:\PIC\proce131.asm      
+              VERIF_0D_0E   0x00004c    program     static C:\PIC\proce131.asm      
+              VERIF_0D_0F   0x00004f    program     static C:\PIC\proce131.asm      
+              VERIF_0D_10   0x000052    program     static C:\PIC\proce131.asm      
+               SWIT_0D_0E   0x000055    program     static C:\PIC\proce131.asm      
+               SWIT_0D_0F   0x00005d    program     static C:\PIC\proce131.asm      
+               SWIT_0D_10   0x000065    program     static C:\PIC\proce131.asm      
+                  COMP_0E   0x00006d    program     static C:\PIC\proce131.asm      
+              VERIF_0E_0F   0x000073    program     static C:\PIC\proce131.asm      
+              VERIF_0E_10   0x000076    program     static C:\PIC\proce131.asm      
+               SWIT_0E_0F   0x000079    program     static C:\PIC\proce131.asm      
+               SWIT_0E_10   0x000081    program     static C:\PIC\proce131.asm      
+               COMP_0F_10   0x000089    program     static C:\PIC\proce131.asm      
+              VERIF_0F_10   0x00008c    program     static C:\PIC\proce131.asm      
+               SWIT_0F_10   0x00008f    program     static C:\PIC\proce131.asm      
+                      FIN   0x000097    program     static C:\PIC\proce131.asm      
+
+

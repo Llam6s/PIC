@@ -1,0 +1,38 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Wed Jun 13 20:09:21 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000026
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000012      
+            19 out of 1094 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                      BCD   0x000003    program     static C:\PIC\proce91.asm       
+                    BCD_A   0x000006    program     static C:\PIC\proce91.asm       
+                      FIN   0x000011    program     static C:\PIC\proce91.asm       
+                   Inicio   0x000000    program     static C:\PIC\proce91.asm       
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   Inicio   0x000000    program     static C:\PIC\proce91.asm       
+                      BCD   0x000003    program     static C:\PIC\proce91.asm       
+                    BCD_A   0x000006    program     static C:\PIC\proce91.asm       
+                      FIN   0x000011    program     static C:\PIC\proce91.asm       
+
+

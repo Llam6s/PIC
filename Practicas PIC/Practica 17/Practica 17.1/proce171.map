@@ -1,0 +1,55 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Mon Jun 25 18:26:31 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0000ac
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000055      
+            86 out of 1094 program addresses used, program memory utilization is 7%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    CARRY   0x000033    program     static C:\PIC\proce171.asm      
+                  CARRY_D   0x000036    program     static C:\PIC\proce171.asm      
+                  CARRY_S   0x000024    program     static C:\PIC\proce171.asm      
+                  CARRY_Z   0x00003a    program     static C:\PIC\proce171.asm      
+            COMPLEMENTO_1   0x000047    program     static C:\PIC\proce171.asm      
+            COMPLEMENTO_2   0x00004d    program     static C:\PIC\proce171.asm      
+                COMPROBAR   0x00003e    program     static C:\PIC\proce171.asm      
+              COMPROBAR_2   0x000043    program     static C:\PIC\proce171.asm      
+                 DIVISION   0x000028    program     static C:\PIC\proce171.asm      
+                    ERR_0   0x000053    program     static C:\PIC\proce171.asm      
+                      FIN   0x000055    program     static C:\PIC\proce171.asm      
+                 PROMEDIO   0x000012    program     static C:\PIC\proce171.asm      
+                     SUMA   0x000013    program     static C:\PIC\proce171.asm      
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                 PROMEDIO   0x000012    program     static C:\PIC\proce171.asm      
+                     SUMA   0x000013    program     static C:\PIC\proce171.asm      
+                  CARRY_S   0x000024    program     static C:\PIC\proce171.asm      
+                 DIVISION   0x000028    program     static C:\PIC\proce171.asm      
+                    CARRY   0x000033    program     static C:\PIC\proce171.asm      
+                  CARRY_D   0x000036    program     static C:\PIC\proce171.asm      
+                  CARRY_Z   0x00003a    program     static C:\PIC\proce171.asm      
+                COMPROBAR   0x00003e    program     static C:\PIC\proce171.asm      
+              COMPROBAR_2   0x000043    program     static C:\PIC\proce171.asm      
+            COMPLEMENTO_1   0x000047    program     static C:\PIC\proce171.asm      
+            COMPLEMENTO_2   0x00004d    program     static C:\PIC\proce171.asm      
+                    ERR_0   0x000053    program     static C:\PIC\proce171.asm      
+                      FIN   0x000055    program     static C:\PIC\proce171.asm      
+
+

@@ -1,0 +1,244 @@
+MPASM  5.43                     PROCE6511.ASM   3-28-2018  17:49:17         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;*********************************************************
+                      00002 
+                      00003 ;Probar los códigos de operación del microcontrolador
+                      00004 
+                      00005 ;instrucciones de SALTO "goto"
+                      00006 
+                      00007 ;P 6 5 1 1
+                      00008 
+                      00009 ;********************************************************
+                      00010 
+                      00011         LIST P=16F84A                           ;Procesador
+                      00012 
+                      00013         INCLUDE<P16F84A.INC>            ;Definicion de los operandos utilizados.
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00207         LIST
+                      00014 
+                      00015 ;***********************************************************
+                      00016 
+0000                  00017         ORG             0                                       ;El programa comienza en la direccion 0 
+                            de memoria
+                      00018 
+0000                  00019 Inicio
+                      00020 
+0000   3000           00021         movlw   0x00                            ;Carga 0x00 en W
+                      00022 
+0001   2806           00023         goto    Uno                                     ;Brinca a Uno
+                      00024 
+0002                  00025 Dos
+                      00026         
+0002   3002           00027         movlw   0x02                            ;Carga 0x02 en W
+                      00028 
+0003   2808           00029         goto    Tres                            ;Brinca Tres
+                      00030 
+0004                  00031 Seis
+                      00032 
+0004   3006           00033         movlw   0x06                            ;Carga 0x06 en W
+                      00034 
+0005   2810           00035         goto    Siete                           ;Brinca Siete
+                      00036 
+0006                  00037 Uno
+                      00038 
+0006   3001           00039         movlw   0x01                            ;Carga en 0x01 en W
+                      00040 
+0007   2802           00041         goto    Dos                                     ;Brinca a Dos
+                      00042 
+0008                  00043 Tres
+MPASM  5.43                     PROCE6511.ASM   3-28-2018  17:49:17         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00044 
+0008   3003           00045         movlw   0x03                            ;Carga 0x03 en W
+                      00046 
+0009   280E           00047         goto    Cuatro                          ;Brinca a Cuatro
+                      00048 
+000A                  00049 Cinco
+                      00050         
+000A   3005           00051         movlw   0x05                            ;Carga 0x05 en W
+                      00052 
+000B   2804           00053         goto    Seis                            ;Brinca a Seis
+                      00054 
+000C                  00055 Ocho
+                      00056 
+000C   3008           00057         movlw   0x08                            ;Carga 0x08 en W
+                      00058 
+000D   2812           00059         goto    Nueve                           ;Brinca a Nueve
+                      00060 
+000E                  00061 Cuatro
+                      00062         
+000E   3004           00063         movlw   0x04                            ;Carga 0x04 en W
+                      00064 
+000F   280A           00065         goto    Cinco                           ;Brinca a Cinco
+                      00066 
+0010                  00067 Siete
+                      00068 
+0010   3007           00069         movlw   0x07                            ;Carga 0x07 en W
+                      00070 
+0011   280C           00071         goto    Ocho                            ;Brinca a Ocho
+                      00072 
+0012                  00073 Nueve
+                      00074 
+0012   3009           00075         movlw   0x09                            ;Carga 0x09 en W
+                      00076 
+0013   2800           00077         goto    Inicio                          ;Genera un bucle cerrado en Inicio}
+                      00078 
+                      00079         END                                                     ;Fin del programa.
+MPASM  5.43                     PROCE6511.ASM   3-28-2018  17:49:17         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+Cinco                             0000000A
+Cuatro                            0000000E
+DC                                00000001
+Dos                               00000002
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+Inicio                            00000000
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+Nueve                             00000012
+OPTION_REG                        00000081
+Ocho                              0000000C
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+MPASM  5.43                     PROCE6511.ASM   3-28-2018  17:49:17         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+STATUS                            00000003
+Seis                              00000004
+Siete                             00000010
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+Tres                              00000008
+Uno                               00000006
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+MPASM  5.43                     PROCE6511.ASM   3-28-2018  17:49:17         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXX------------ ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    20
+Program Memory Words Free:  1004
+
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

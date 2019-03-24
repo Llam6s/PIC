@@ -1,0 +1,203 @@
+MPASM  5.43                      PROCE111.ASM   6-25-2018  10:56:23         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;****************************************************
+                      00002 
+                      00003         LIST P=16F84A
+                      00004         
+                      00005         INCLUDE<P16F84A.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00207         LIST
+                      00006         
+                      00007 ;P 11 1
+                      00008 
+                      00009 ;****************************************************
+                      00010 
+0000                  00011         ORG             0
+                      00012         
+0000                  00013 Inicio
+                      00014 
+0000   300F           00015         movlw   0x0F
+0001   008C           00016         movwf   0x0C
+0002   2003           00017         call    HEX
+                      00018         
+0003                  00019 HEX
+                      00020 
+0003   2006           00021         call    HEX_DEC
+0004   008D           00022         movwf   0x0D
+0005   2817           00023         goto    FIN
+                      00024         
+0006                  00025 HEX_DEC
+                      00026         
+0006   0782           00027         addwf   PCL,1
+0007   3400           00028         retlw   0x00
+0008   3401           00029         retlw   0x01
+0009   3402           00030         retlw   0x02
+000A   3403           00031         retlw   0x03
+000B   3404           00032         retlw   0x04
+000C   3405           00033         retlw   0x05
+000D   3406           00034         retlw   0x06
+000E   3407           00035         retlw   0x07
+000F   3408           00036         retlw   0x08
+0010   3409           00037         retlw   0x09
+0011   3410           00038         retlw   0x10
+0012   3411           00039         retlw   0x11
+0013   3412           00040         retlw   0x12
+0014   3413           00041         retlw   0x13
+0015   3414           00042         retlw   0x14
+0016   3415           00043         retlw   0x15
+                      00044         
+MPASM  5.43                      PROCE111.ASM   6-25-2018  10:56:23         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0017                  00045 FIN
+0017   0103           00046         clrw
+0018   2817           00047         goto    FIN
+Warning[205]: Found directive in column 1. (END)
+                      00048 END
+MPASM  5.43                      PROCE111.ASM   6-25-2018  10:56:23         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FIN                               00000017
+FSR                               00000004
+GIE                               00000007
+HEX                               00000003
+HEX_DEC                           00000006
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+Inicio                            00000000
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+MPASM  5.43                      PROCE111.ASM   6-25-2018  10:56:23         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+MPASM  5.43                      PROCE111.ASM   6-25-2018  10:56:23         PAGE  5
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXX------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    25
+Program Memory Words Free:   999
+
+
+Errors   :     0
+Warnings :     1 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

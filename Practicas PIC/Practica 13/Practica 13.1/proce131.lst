@@ -1,0 +1,428 @@
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;****************************************************
+                      00002 
+                      00003         LIST P=16F84A
+                      00004         
+                      00005         INCLUDE<P16F84A.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00207         LIST
+                      00006         
+                      00007 ;P 13 1
+                      00008 
+                      00009 ;****************************************************
+                      00010 
+0000                  00011         ORG             0
+                      00012         
+0000                  00013 Inicio
+                      00014         
+0000   3007           00015         movlw   0x07            ;NUM - 1
+0001   008C           00016         movwf   0x0C
+0002   3009           00017         movlw   0x09            ;NUM - 2
+0003   008D           00018         movwf   0x0D
+0004   3005           00019         movlw   0x05            ;NUM - 3
+0005   008E           00020         movwf   0x0E
+0006   3003           00021         movlw   0x03            ;NUM - 4
+0007   008F           00022         movwf   0x0F
+0008   3001           00023         movlw   0x01            ;NUM - 5
+0009   0090           00024         movwf   0x10
+000A   200B           00025         call    COMP_0C
+                      00026         
+                      00027 ;---------------------- 0C -----------------------
+                      00028 
+000B                  00029 COMP_0C
+000B   080D           00030         movfw   0x0D
+000C   020C           00031         subwf   0x0C,0
+000D   2017           00032         call    VERIF_0C_0D
+000E   080E           00033         movfw   0x0E
+000F   020C           00034         subwf   0x0C,0
+0010   201A           00035         call    VERIF_0C_0E
+0011   080F           00036         movfw   0x0F
+0012   020C           00037         subwf   0x0C,0
+0013   201D           00038         call    VERIF_0C_0F
+0014   0810           00039         movfw   0x10
+0015   020C           00040         subwf   0x0C,0
+0016   2020           00041         call    VERIF_0C_10
+                      00042 
+0017                  00043 VERIF_0C_0D
+0017   1803           00044         btfsc   STATUS,0
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0018   0008           00045         return
+0019   2023           00046         call    SWIT_0C_0D
+                      00047 
+001A                  00048 VERIF_0C_0E
+001A   1803           00049         btfsc   STATUS,0
+001B   0008           00050         return
+001C   202B           00051         call    SWIT_0C_0E
+                      00052 
+001D                  00053 VERIF_0C_0F
+001D   1803           00054         btfsc   STATUS,0
+001E   0008           00055         return
+001F   2033           00056         call    SWIT_0C_0F      
+                      00057 
+0020                  00058 VERIF_0C_10
+0020   1803           00059         btfsc   STATUS,0
+0021   0008           00060         return
+0022   203B           00061         call    SWIT_0C_10
+                      00062 
+0023                  00063 SWIT_0C_0D
+0023   080C           00064         movfw   0x0C
+0024   008B           00065         movwf   0x0B
+0025   080D           00066         movfw   0x0D
+0026   008C           00067         movwf   0x0C
+0027   080B           00068         movfw   0x0B
+0028   008D           00069         movwf   0x0D
+0029   018B           00070         clrf    0x0B
+002A   200B           00071         call    COMP_0C
+                      00072         
+002B                  00073 SWIT_0C_0E
+002B   080C           00074         movfw   0x0C
+002C   008B           00075         movwf   0x0B
+002D   080E           00076         movfw   0x0E
+002E   008C           00077         movwf   0x0C
+002F   080B           00078         movfw   0x0B
+0030   008E           00079         movwf   0x0E
+0031   018B           00080         clrf    0x0B
+0032   200B           00081         call    COMP_0C
+                      00082         
+0033                  00083 SWIT_0C_0F
+0033   080C           00084         movfw   0x0C
+0034   008B           00085         movwf   0x0B
+0035   080F           00086         movfw   0x0F
+0036   008C           00087         movwf   0x0C
+0037   080B           00088         movfw   0x0B
+0038   008F           00089         movwf   0x0F
+0039   018B           00090         clrf    0x0B
+003A   200B           00091         call    COMP_0C
+                      00092         
+003B                  00093 SWIT_0C_10
+003B   080C           00094         movfw   0x0C
+003C   008B           00095         movwf   0x0B
+003D   0810           00096         movfw   0x10
+003E   008C           00097         movwf   0x0C
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+003F   080B           00098         movfw   0x0B
+0040   0090           00099         movwf   0x10
+0041   018B           00100         clrf    0x0B
+0042   200B           00101         call    COMP_0C
+                      00102         
+                      00103 ;------------------ 0D -------------------
+                      00104 
+0043                  00105 COMP_0D
+0043   080E           00106         movfw   0x0E
+0044   020D           00107         subwf   0x0D,0
+0045   204C           00108         call    VERIF_0D_0E
+0046   080F           00109         movfw   0x0F
+0047   020D           00110         subwf   0x0D,0
+0048   204F           00111         call    VERIF_0D_0F
+0049   0810           00112         movfw   0x10
+004A   020D           00113         subwf   0x0D,0
+004B   2052           00114         call    VERIF_0D_10
+                      00115         
+004C                  00116 VERIF_0D_0E
+004C   1803           00117         btfsc   STATUS,0
+004D   0008           00118         return
+004E   2055           00119         call    SWIT_0D_0E
+                      00120 
+004F                  00121 VERIF_0D_0F
+004F   1803           00122         btfsc   STATUS,0
+0050   0008           00123         return
+0051   205D           00124         call    SWIT_0D_0F
+                      00125 
+0052                  00126 VERIF_0D_10
+0052   1803           00127         btfsc   STATUS,0
+0053   0008           00128         return
+0054   2065           00129         call    SWIT_0D_10
+                      00130         
+0055                  00131 SWIT_0D_0E
+0055   080D           00132         movfw   0x0D
+0056   008B           00133         movwf   0x0B
+0057   080E           00134         movfw   0x0E
+0058   008D           00135         movwf   0x0D
+0059   080B           00136         movfw   0x0B
+005A   008E           00137         movwf   0x0E
+005B   018B           00138         clrf    0x0B
+005C   2043           00139         call    COMP_0D
+                      00140         
+005D                  00141 SWIT_0D_0F
+005D   080D           00142         movfw   0x0D
+005E   008B           00143         movwf   0x0B
+005F   080F           00144         movfw   0x0F
+0060   008D           00145         movwf   0x0D
+0061   080B           00146         movfw   0x0B
+0062   008F           00147         movwf   0x0F
+0063   018B           00148         clrf    0x0B
+0064   2043           00149         call    COMP_0D
+                      00150         
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0065                  00151 SWIT_0D_10
+0065   080D           00152         movfw   0x0D
+0066   008B           00153         movwf   0x0B
+0067   0810           00154         movfw   0x10
+0068   008D           00155         movwf   0x0D
+0069   080B           00156         movfw   0x0B
+006A   0090           00157         movwf   0x10
+006B   018B           00158         clrf    0x0B
+006C   2043           00159         call    COMP_0D
+                      00160         
+                      00161 ;------------------ 0E -------------------
+                      00162 
+006D                  00163 COMP_0E
+006D   080F           00164         movfw   0x0F
+006E   020E           00165         subwf   0x0E,0
+006F   2073           00166         call    VERIF_0E_0F
+0070   0810           00167         movfw   0x10
+0071   020E           00168         subwf   0x0E,0
+0072   2076           00169         call    VERIF_0E_10
+                      00170         
+0073                  00171 VERIF_0E_0F
+0073   1803           00172         btfsc   STATUS,0
+0074   0008           00173         return
+0075   2079           00174         call    SWIT_0E_0F
+                      00175 
+0076                  00176 VERIF_0E_10
+0076   1803           00177         btfsc   STATUS,0
+0077   0008           00178         return
+0078   2081           00179         call    SWIT_0E_10
+                      00180         
+0079                  00181 SWIT_0E_0F
+0079   080E           00182         movfw   0x0E
+007A   008B           00183         movwf   0x0B
+007B   080F           00184         movfw   0x0F
+007C   008E           00185         movwf   0x0E
+007D   080B           00186         movfw   0x0B
+007E   008F           00187         movwf   0x0F
+007F   018B           00188         clrf    0x0B
+0080   206D           00189         call    COMP_0E
+                      00190         
+0081                  00191 SWIT_0E_10
+0081   080E           00192         movfw   0x0E
+0082   008B           00193         movwf   0x0B
+0083   0810           00194         movfw   0x10
+0084   008E           00195         movwf   0x0E
+0085   080B           00196         movfw   0x0B
+0086   0090           00197         movwf   0x10
+0087   018B           00198         clrf    0x0B
+0088   206D           00199         call    COMP_0E
+                      00200         
+                      00201 ;------------------ 0F -------------------
+                      00202 
+0089                  00203 COMP_0F_10
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0089   0810           00204         movfw   0x10
+008A   020F           00205         subwf   0x0F,0
+008B   208C           00206         call    VERIF_0F_10
+                      00207         
+008C                  00208 VERIF_0F_10
+008C   1803           00209         btfsc   STATUS,0
+008D   2897           00210         goto    FIN
+008E   208F           00211         call    SWIT_0F_10
+                      00212         
+008F                  00213 SWIT_0F_10
+008F   080F           00214         movfw   0x0F
+0090   008B           00215         movwf   0x0B
+0091   0810           00216         movfw   0x10
+0092   008F           00217         movwf   0x0F
+0093   080B           00218         movfw   0x0B
+0094   0090           00219         movwf   0x10
+0095   018B           00220         clrf    0x0B
+0096   2089           00221         call    COMP_0F_10
+                      00222 
+0097                  00223 FIN
+0097   018B           00224         clrf    0x0B
+0098   2897           00225         goto    FIN
+                      00226         
+Warning[205]: Found directive in column 1. (END)
+                      00227 END
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+COMP_0C                           0000000B
+COMP_0D                           00000043
+COMP_0E                           0000006D
+COMP_0F_10                        00000089
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FIN                               00000097
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+Inicio                            00000000
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+STATUS                            00000003
+SWIT_0C_0D                        00000023
+SWIT_0C_0E                        0000002B
+SWIT_0C_0F                        00000033
+SWIT_0C_10                        0000003B
+SWIT_0D_0E                        00000055
+SWIT_0D_0F                        0000005D
+SWIT_0D_10                        00000065
+SWIT_0E_0F                        00000079
+SWIT_0E_10                        00000081
+SWIT_0F_10                        0000008F
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+VERIF_0C_0D                       00000017
+VERIF_0C_0E                       0000001A
+VERIF_0C_0F                       0000001D
+VERIF_0C_10                       00000020
+VERIF_0D_0E                       0000004C
+VERIF_0D_0F                       0000004F
+VERIF_0D_10                       00000052
+VERIF_0E_0F                       00000073
+VERIF_0E_10                       00000076
+VERIF_0F_10                       0000008C
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+MPASM  5.43                      PROCE131.ASM   6-25-2018  11:05:25         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0080 : XXXXXXXXXXXXXXXX XXXXXXXXX------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:   153
+Program Memory Words Free:   871
+
+
+Errors   :     0
+Warnings :     1 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

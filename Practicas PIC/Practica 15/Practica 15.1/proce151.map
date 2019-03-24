@@ -1,0 +1,45 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Mon Jun 25 11:21:20 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000056
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x00002a      
+            43 out of 1094 program addresses used, program memory utilization is 3%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                  CARRY_D   0x000013    program     static C:\PIC\proce151.asm      
+                  CARRY_Z   0x000017    program     static C:\PIC\proce151.asm      
+            COMPLEMENTO_1   0x000022    program     static C:\PIC\proce151.asm      
+            COMPLEMENTO_2   0x000026    program     static C:\PIC\proce151.asm      
+                COMPROBAR   0x00001e    program     static C:\PIC\proce151.asm      
+              COMPROBAR_2   0x00001b    program     static C:\PIC\proce151.asm      
+                      FIN   0x00002a    program     static C:\PIC\proce151.asm      
+                    RESTA   0x000009    program     static C:\PIC\proce151.asm      
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    RESTA   0x000009    program     static C:\PIC\proce151.asm      
+                  CARRY_D   0x000013    program     static C:\PIC\proce151.asm      
+                  CARRY_Z   0x000017    program     static C:\PIC\proce151.asm      
+              COMPROBAR_2   0x00001b    program     static C:\PIC\proce151.asm      
+                COMPROBAR   0x00001e    program     static C:\PIC\proce151.asm      
+            COMPLEMENTO_1   0x000022    program     static C:\PIC\proce151.asm      
+            COMPLEMENTO_2   0x000026    program     static C:\PIC\proce151.asm      
+                      FIN   0x00002a    program     static C:\PIC\proce151.asm      
+
+

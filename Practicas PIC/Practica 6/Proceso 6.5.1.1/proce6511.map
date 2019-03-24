@@ -1,0 +1,50 @@
+MPLINK 4.41, Linker
+Linker Map File - Created Wed Mar 28 17:49:18 2018
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000000
+                   .org_1       code   0x000000    program   0x000028
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000013      
+            20 out of 1094 program addresses used, program memory utilization is 1%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    Cinco   0x00000a    program     static C:\PIC\proce6511.asm     
+                   Cuatro   0x00000e    program     static C:\PIC\proce6511.asm     
+                      Dos   0x000002    program     static C:\PIC\proce6511.asm     
+                   Inicio   0x000000    program     static C:\PIC\proce6511.asm     
+                    Nueve   0x000012    program     static C:\PIC\proce6511.asm     
+                     Ocho   0x00000c    program     static C:\PIC\proce6511.asm     
+                     Seis   0x000004    program     static C:\PIC\proce6511.asm     
+                    Siete   0x000010    program     static C:\PIC\proce6511.asm     
+                     Tres   0x000008    program     static C:\PIC\proce6511.asm     
+                      Uno   0x000006    program     static C:\PIC\proce6511.asm     
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                   Inicio   0x000000    program     static C:\PIC\proce6511.asm     
+                      Dos   0x000002    program     static C:\PIC\proce6511.asm     
+                     Seis   0x000004    program     static C:\PIC\proce6511.asm     
+                      Uno   0x000006    program     static C:\PIC\proce6511.asm     
+                     Tres   0x000008    program     static C:\PIC\proce6511.asm     
+                    Cinco   0x00000a    program     static C:\PIC\proce6511.asm     
+                     Ocho   0x00000c    program     static C:\PIC\proce6511.asm     
+                   Cuatro   0x00000e    program     static C:\PIC\proce6511.asm     
+                    Siete   0x000010    program     static C:\PIC\proce6511.asm     
+                    Nueve   0x000012    program     static C:\PIC\proce6511.asm     
+
+

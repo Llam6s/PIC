@@ -1,0 +1,246 @@
+MPASM  5.43                      PROCE151.ASM   6-25-2018  11:21:19         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;****************************************************
+                      00002 
+                      00003         LIST P=16F84A
+                      00004         
+                      00005         INCLUDE<P16F84A.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00207         LIST
+                      00006         
+                      00007 ;P 15 1
+                      00008 
+                      00009 ;****************************************************
+                      00010 
+0000   3023           00011         movlw   0x23
+0001   008C           00012         movwf   0x0C
+0002   3056           00013         movlw   0x56
+0003   008D           00014         movwf   0x0D
+0004   3089           00015         movlw   0x89
+0005   008E           00016         movwf   0x0E
+0006   30BC           00017         movlw   0xBC
+0007   008F           00018         movwf   0x0F
+0008   2809           00019         goto    RESTA
+                      00020         
+0009                  00021 RESTA
+                      00022 
+0009   201E           00023         call    COMPROBAR
+000A   2022           00024         call    COMPLEMENTO_1
+000B   080F           00025         movfw   0x0F
+000C   070D           00026         addwf   0x0D,0
+000D   0091           00027         movwf   0x11
+000E   2013           00028         call    CARRY_D
+000F   080E           00029         movfw   0x0E
+0010   070C           00030         addwf   0x0C,0
+0011   0090           00031         movwf   0x10
+0012   282A           00032         goto    FIN
+                      00033         
+                      00034 ;CARRY
+                      00035 ;       btfsc   STATUS,0
+                      00036 ;       return
+                      00037 ;       call    ERR_0
+                      00038 
+0013                  00039 CARRY_D
+0013   1C03           00040         btfss   STATUS,0
+0014   0008           00041         return
+0015   0A8C           00042         incf    0x0C,1
+0016   0008           00043         return
+                      00044         
+MPASM  5.43                      PROCE151.ASM   6-25-2018  11:21:19         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0017                  00045 CARRY_Z
+0017   1D03           00046         btfss   STATUS,2
+0018   0008           00047         return
+0019   201B           00048         call    COMPROBAR_2
+001A   0008           00049         return
+                      00050         
+001B                  00051 COMPROBAR_2
+001B   080F           00052         movfw   0x0F
+001C   020D           00053         subwf   0x0D,0
+                      00054 ;       call    CARRY
+001D   0008           00055         return
+                      00056         
+001E                  00057 COMPROBAR
+001E   080E           00058         movfw   0x0E
+001F   020C           00059         subwf   0x0C,0
+                      00060         ;call   CARRY
+0020   2017           00061         call    CARRY_Z
+0021   0008           00062         return
+                      00063         
+0022                  00064 COMPLEMENTO_1
+                      00065         
+0022   098E           00066         comf    0x0E,1
+0023   098F           00067         comf    0x0F,1
+0024   2026           00068         call    COMPLEMENTO_2
+0025   0008           00069         return
+                      00070 
+0026                  00071 COMPLEMENTO_2
+0026   0F8F           00072         incfsz  0x0F,1
+0027   0008           00073         return
+0028   0A8E           00074         incf    0x0E,1
+0029   0008           00075         return
+                      00076         
+                      00077 ;ERR_0
+                      00078         
+                      00079 ;       clrf    0x10
+                      00080 ;       clrf    0x11
+                      00081 ;       call    FIN
+                      00082         
+002A                  00083 FIN
+                      00084         
+002A   282A           00085         goto    FIN
+                      00086         
+Warning[205]: Found directive in column 1. (END)
+                      00087 END
+MPASM  5.43                      PROCE151.ASM   6-25-2018  11:21:19         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+CARRY_D                           00000013
+CARRY_Z                           00000017
+COMPLEMENTO_1                     00000022
+COMPLEMENTO_2                     00000026
+COMPROBAR                         0000001E
+COMPROBAR_2                       0000001B
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FIN                               0000002A
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RESTA                             00000009
+MPASM  5.43                      PROCE151.ASM   6-25-2018  11:21:19         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+MPASM  5.43                      PROCE151.ASM   6-25-2018  11:21:19         PAGE  5
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXX----- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    43
+Program Memory Words Free:   981
+
+
+Errors   :     0
+Warnings :     1 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

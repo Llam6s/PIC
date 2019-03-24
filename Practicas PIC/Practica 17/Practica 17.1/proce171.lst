@@ -1,0 +1,322 @@
+MPASM  5.43                      PROCE171.ASM   6-25-2018  18:26:30         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001 ;****************************************************
+                      00002 
+                      00003         LIST P=16F84A
+                      00004         
+                      00005         INCLUDE<P16F84A.INC>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2011 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00207         LIST
+                      00006         
+                      00007 ;P 17 1
+                      00008 
+                      00009 ;****************************************************
+0000   019E           00010         clrf    0x1E
+0001   019F           00011         clrf    0x1F
+0002   018F           00012         clrf    0x0F
+0003   018E           00013         clrf    0x0E
+0004   0197           00014         clrf    0x17
+0005   30FD           00015         movlw   0xFD
+0006   0092           00016         movwf   0x12
+0007   30FF           00017         movlw   0xFF
+0008   0093           00018         movwf   0x13
+0009   30FF           00019         movlw   0xFF
+000A   0094           00020         movwf   0x14
+000B   30FF           00021         movlw   0xFF
+000C   0095           00022         movwf   0x15
+000D   30FF           00023         movlw   0xFF
+000E   0096           00024         movwf   0x16
+000F   3005           00025         movlw   0x05
+0010   009F           00026         movwf   0x1F
+0011   2812           00027         goto    PROMEDIO
+                      00028         
+0012                  00029 PROMEDIO
+                      00030         
+0012   2013           00031         call    SUMA
+                      00032         
+0013                  00033 SUMA
+                      00034         
+0013   0812           00035         movfw   0x12
+0014   0713           00036         addwf   0x13,0
+0015   008F           00037         movwf   0x0F
+0016   2024           00038         call    CARRY_S
+0017   080F           00039         movfw   0x0F
+0018   0714           00040         addwf   0x14,0
+0019   008F           00041         movwf   0x0F
+001A   2024           00042         call    CARRY_S
+001B   080F           00043         movfw   0x0F
+001C   0715           00044         addwf   0x15,0
+MPASM  5.43                      PROCE171.ASM   6-25-2018  18:26:30         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+001D   008F           00045         movwf   0x0F
+001E   2024           00046         call    CARRY_S
+001F   080F           00047         movfw   0x0F
+0020   0716           00048         addwf   0x16,0
+0021   008F           00049         movwf   0x0F
+0022   2024           00050         call    CARRY_S
+0023   2828           00051         goto    DIVISION
+                      00052 
+0024                  00053 CARRY_S
+                      00054 
+0024   1C03           00055         btfss   STATUS,0
+0025   0008           00056         return
+0026   0A8E           00057         incf    0x0E,1
+0027   0008           00058         return
+                      00059 
+0028                  00060 DIVISION
+                      00061 
+0028   203E           00062         call    COMPROBAR
+0029   2047           00063         call    COMPLEMENTO_1
+002A   082F           00064         movfw   0x2F
+002B   078F           00065         addwf   0x0F,1
+002C   2036           00066         call    CARRY_D
+002D   082E           00067         movfw   0x2E
+002E   078E           00068         addwf   0x0E,1
+002F   0F97           00069         incfsz  0x17,1
+0030   2828           00070         goto    DIVISION
+0031   0AA7           00071         incf    0x27,1
+0032   2828           00072         goto    DIVISION
+                      00073         
+0033                  00074 CARRY
+0033   1803           00075         btfsc   STATUS,0
+0034   0008           00076         return
+0035   2855           00077         goto    FIN
+                      00078         
+0036                  00079 CARRY_D
+0036   1C03           00080         btfss   STATUS,0
+0037   0008           00081         return
+0038   0A8E           00082         incf    0x0E,1
+0039   0008           00083         return
+                      00084         
+003A                  00085 CARRY_Z
+003A   1D03           00086         btfss   STATUS,2
+003B   0008           00087         return
+003C   2043           00088         call    COMPROBAR_2
+003D   0008           00089         return
+                      00090 
+003E                  00091 COMPROBAR
+003E   081E           00092         movfw   0x1E
+003F   020E           00093         subwf   0x0E,0
+0040   2033           00094         call    CARRY
+0041   203A           00095         call    CARRY_Z
+0042   0008           00096         return  
+                      00097 
+MPASM  5.43                      PROCE171.ASM   6-25-2018  18:26:30         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0043                  00098 COMPROBAR_2
+0043   081F           00099         movfw   0x1F
+0044   020F           00100         subwf   0x0F,0
+0045   2033           00101         call    CARRY
+0046   0008           00102         return
+                      00103         
+0047                  00104 COMPLEMENTO_1
+                      00105         
+0047   091E           00106         comf    0x1E,0
+0048   00AE           00107         movwf   0x2E
+0049   091F           00108         comf    0x1F,0
+004A   00AF           00109         movwf   0x2F
+004B   204D           00110         call    COMPLEMENTO_2
+004C   0008           00111         return
+                      00112 
+004D                  00113 COMPLEMENTO_2
+004D   0FAF           00114         incfsz  0x2F,1
+004E   0008           00115         return
+004F   0FAE           00116         incfsz  0x2E,1
+0050   0008           00117         return
+0051   0AAD           00118         incf    0x2D,1
+0052   0008           00119         return
+                      00120         
+0053                  00121 ERR_0
+                      00122         
+0053   0197           00123         clrf    0x17
+0054   0008           00124         return
+                      00125         
+                      00126 ;COMP_F
+                      00127         
+                      00128 ;       movfw   0x1E
+                      00129 ;       subwf   0x0E,0
+                      00130 ;       addwf   0x1E,0
+                      00131 ;       btfss   STATUS,2
+                      00132 ;       btfsc   STATUS,0
+                      00133 ;       btfss   STATUS,2
+                      00134 ;       goto    ERR_0
+                      00135 ;       movfw   0x1F
+                      00136 ;       subwf   0x0F,0
+                      00137 ;       addwf   0x1F,0
+                      00138 ;       btfss   STATUS,2
+                      00139 ;       goto    ERR_0
+                      00140 ;       return
+                      00141         
+0055                  00142 FIN
+                      00143         
+                      00144 ;       call    COMP_F
+0055   2855           00145         goto    FIN
+                      00146         
+Warning[205]: Found directive in column 1. (END)
+                      00147 END
+MPASM  5.43                      PROCE171.ASM   6-25-2018  18:26:30         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+CARRY                             00000033
+CARRY_D                           00000036
+CARRY_S                           00000024
+CARRY_Z                           0000003A
+COMPLEMENTO_1                     00000047
+COMPLEMENTO_2                     0000004D
+COMPROBAR                         0000003E
+COMPROBAR_2                       00000043
+DC                                00000001
+DIVISION                          00000028
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+ERR_0                             00000053
+F                                 00000001
+FIN                               00000055
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PROMEDIO                          00000012
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+MPASM  5.43                      PROCE171.ASM   6-25-2018  18:26:30         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+SUMA                              00000013
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+MPASM  5.43                      PROCE171.ASM   6-25-2018  18:26:30         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXXXXXXXXXXXX XXXXXX---------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    86
+Program Memory Words Free:   938
+
+
+Errors   :     0
+Warnings :     1 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+
